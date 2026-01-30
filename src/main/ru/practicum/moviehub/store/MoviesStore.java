@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MoviesStore {
     private final Map<Integer, Movie> movies = new HashMap<>();
@@ -23,5 +25,19 @@ public class MoviesStore {
     public void clear() {
         movies.clear();
         currentId = 1;
+    }
+
+    public Optional<Movie> getById(int id) {
+        return Optional.ofNullable(movies.get(id));
+    }
+
+    public boolean delete(int id) {
+        return movies.remove(id) != null;
+    }
+
+    public List<Movie> getByYear(int year) {
+        return movies.values().stream()
+                .filter(m -> m.getYear() == year)
+                .collect(Collectors.toList());
     }
 }

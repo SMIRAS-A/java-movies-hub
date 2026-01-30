@@ -23,4 +23,8 @@ public abstract class BaseHttpHandler implements HttpHandler {
         ex.sendResponseHeaders(204, -1);
         ex.close();
     }
+
+    protected String readText(HttpExchange ex) throws IOException {
+        return new String(ex.getRequestBody().readAllBytes(), StandardCharsets.UTF_8);
+    }
 }

@@ -22,12 +22,11 @@ public class MoviesServer {
 
     public void start() {
         server.start();
-        System.out.println("Сервер запущен на порту " + server.getAddress().getPort());
+        System.out.println("HTTP-сервер запущен на " + server.getAddress().getPort() + " порту!");
     }
 
     public void stop() {
         server.stop(0);
-        System.out.println("Сервер остановлен");
     }
 
     public MoviesStore getMoviesStore() {
