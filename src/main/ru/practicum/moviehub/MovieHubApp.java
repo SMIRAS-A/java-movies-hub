@@ -9,4 +9,6 @@ public class MovieHubApp {
         Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
         server.start();
     }
+
+
 }
